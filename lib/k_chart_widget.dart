@@ -231,51 +231,54 @@ class _KChartWidgetState extends State<KChartWidget>
             isScale = false;
             _lastScale = mScaleX;
           },
+          // 长按手势禁用
           onLongPressStart: (details) {
-            isOnTap = false;
-            isLongPress = true;
-            if ((mSelectX != details.localPosition.dx ||
-                    mSelectY != details.globalPosition.dy) &&
-                !widget.isTrendLine) {
-              mSelectX = details.localPosition.dx;
-              notifyChanged();
-            }
-            //For TrendLine
-            if (widget.isTrendLine && changeinXposition == null) {
-              mSelectX = changeinXposition = details.localPosition.dx;
-              mSelectY = changeinYposition = details.globalPosition.dy;
-              notifyChanged();
-            }
-            //For TrendLine
-            if (widget.isTrendLine && changeinXposition != null) {
-              changeinXposition = details.localPosition.dx;
-              changeinYposition = details.globalPosition.dy;
-              notifyChanged();
-            }
+            // isOnTap = false;
+            // isLongPress = true;
+            // if ((mSelectX != details.localPosition.dx ||
+            //         mSelectY != details.globalPosition.dy) &&
+            //     !widget.isTrendLine) {
+            //   mSelectX = details.localPosition.dx;
+            //   notifyChanged();
+            // }
+            // //For TrendLine
+            // if (widget.isTrendLine && changeinXposition == null) {
+            //   mSelectX = changeinXposition = details.localPosition.dx;
+            //   mSelectY = changeinYposition = details.globalPosition.dy;
+            //   notifyChanged();
+            // }
+            // //For TrendLine
+            // if (widget.isTrendLine && changeinXposition != null) {
+            //   changeinXposition = details.localPosition.dx;
+            //   changeinYposition = details.globalPosition.dy;
+            //   notifyChanged();
+            // }
           },
+          // 长按手势禁用
           onLongPressMoveUpdate: (details) {
-            if ((mSelectX != details.localPosition.dx ||
-                    mSelectY != details.globalPosition.dy) &&
-                !widget.isTrendLine) {
-              mSelectX = details.localPosition.dx;
-              mSelectY = details.localPosition.dy;
-              notifyChanged();
-            }
-            if (widget.isTrendLine) {
-              mSelectX =
-                  mSelectX + (details.localPosition.dx - changeinXposition!);
-              changeinXposition = details.localPosition.dx;
-              mSelectY =
-                  mSelectY + (details.globalPosition.dy - changeinYposition!);
-              changeinYposition = details.globalPosition.dy;
-              notifyChanged();
-            }
+            // if ((mSelectX != details.localPosition.dx ||
+            //         mSelectY != details.globalPosition.dy) &&
+            //     !widget.isTrendLine) {
+            //   mSelectX = details.localPosition.dx;
+            //   mSelectY = details.localPosition.dy;
+            //   notifyChanged();
+            // }
+            // if (widget.isTrendLine) {
+            //   mSelectX =
+            //       mSelectX + (details.localPosition.dx - changeinXposition!);
+            //   changeinXposition = details.localPosition.dx;
+            //   mSelectY =
+            //       mSelectY + (details.globalPosition.dy - changeinYposition!);
+            //   changeinYposition = details.globalPosition.dy;
+            //   notifyChanged();
+            // }
           },
+          // 长按手势禁用
           onLongPressEnd: (details) {
-            isLongPress = false;
-            enableCordRecord = true;
-            mInfoWindowStream?.sink.add(null);
-            notifyChanged();
+            // isLongPress = false;
+            // enableCordRecord = true;
+            // mInfoWindowStream?.sink.add(null);
+            // notifyChanged();
           },
           child: Stack(
             children: <Widget>[
